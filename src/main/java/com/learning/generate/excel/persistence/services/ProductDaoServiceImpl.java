@@ -38,6 +38,11 @@ public class ProductDaoServiceImpl implements ProductDaoService {
 		
 		return query.getResultList();
 	}
+
+	@Override
+	public String getTotalData(String startDate, String endDate, String category) {
+		return repository.getTotalData(startDate, endDate, category);
+	}
 	
 	
 	

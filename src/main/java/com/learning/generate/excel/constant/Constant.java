@@ -6,7 +6,7 @@ public interface Constant {
 
 	final String XLSX_FORMAT = "xlsx";
 	final String SHEETNAME = "Sheet1";
-			
+	final String ROW_PER_PART = "row.per.part";		
 	
 	class RowColumn {
 		public static final Integer REPORT_ROW_TITLE = 0;

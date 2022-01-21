@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -29,6 +30,8 @@ public class GenerateExcelUsingListServiceImpl extends CommonService implements 
 	
 	@Override
 	public ReportResponse generateExcel(ReportParameter reportParameter) throws IOException, ParseException {
+		long startGenerate = System.nanoTime();
+		
 		ReportResponse result = new ReportResponse();
 		
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -67,6 +70,11 @@ public class GenerateExcelUsingListServiceImpl extends CommonService implements 
 		result.setFileType(Constant.XLSX_FORMAT);
 		String date = setDate(reportParameter.getStartDate(), reportParameter.getEndDate());
 		result.setFileName(Constant.RowValue.REPORT_NAME + "[ " + date + " ]." + result.getFileType());
+		
+		long endGenerate = System.nanoTime();
+		long finishGenerate = TimeUnit.SECONDS.convert((endGenerate - startGenerate), TimeUnit.NANOSECONDS);
+		logger.info("{}{} CONSUME TIME FOR GENERATE EXCEL USING LIST {}{} : " + finishGenerate);
+		
 		return result;
 	}
 
@@ -88,16 +96,6 @@ public class GenerateExcelUsingListServiceImpl extends CommonService implements 
 		}
 		
 		generateTotal(sxssfSheet, rowNumber, listData.size());
-		
-	}
-	
-	
-	private void generateTotal(SXSSFSheet sxssfSheet, Integer rowNumber, int total) {
-		rowNumber +=3;
-		Row rowTotal = sxssfSheet.createRow(rowNumber);
-		rowTotal.createCell(0).setCellValue(Constant.RowValue.DATA_TOTAL);
-		String totalData = String.valueOf(total);
-		rowTotal.createCell(2).setCellValue(" : " + totalData);
 		
 	}
 	

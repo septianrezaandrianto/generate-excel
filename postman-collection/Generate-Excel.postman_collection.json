@@ -44,6 +44,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Generate Excel Without List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startDate\": \"2021-04-01\",\n    \"endDate\": \"2021-04-30\",\n    \"category\": \"Makanan\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/generateExcelWithoutList",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"generateExcelWithoutList"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

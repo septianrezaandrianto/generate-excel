@@ -114,4 +114,14 @@ public class CommonService {
 		return decimalFormat.format(nominal);
 	}
 	
+	
+	protected void generateTotal(SXSSFSheet sxssfSheet, Integer rowNumber, int total) {
+		rowNumber +=1;
+		Row rowTotal = sxssfSheet.createRow(rowNumber);
+		rowTotal.createCell(0).setCellValue(Constant.RowValue.DATA_TOTAL);
+		String totalData = String.valueOf(total);
+		rowTotal.createCell(2).setCellValue(" : " + totalData);
+		
+	}
+	
 }

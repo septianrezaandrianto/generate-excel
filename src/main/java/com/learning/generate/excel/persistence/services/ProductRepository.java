@@ -18,4 +18,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 			+ "AND to_char(p.created_on, 'yyyy-MM-dd') >= :startDate "
 			+ "AND to_char(p.created_on, 'yyyy-MM-dd') <= :endDate", nativeQuery = true)
 	List<Product> findProductByFilter(@Param("startDate")String startDate, @Param("endDate")String endDate);
+	
+	@Query(value = "SELECT COUNT(1) FROM product p JOIN category c ON p.category_id = c.category_id "
+			+ "WHERE c.category_name = :category "
+			+ "AND p.is_deleted = false "
+			+ "AND to_char(p.created_on, 'yyyy-MM-dd') >= :startDate "
+			+ "AND to_char(p.created_on, 'yyyy-MM-dd') <= :endDate", nativeQuery = true)
+	String getTotalData(@Param("startDate")String startDate, @Param("endDate")String endDate, 
+			@Param("category")String category);
 }

@@ -9,4 +9,5 @@ public interface ProductDaoService {
 
 	List<Product> findProductByFilter(String startDate, String EndDate);
 	List<ProductSpesific> findProductByFilter(String startDate, String endDate, String category);
+	String getTotalData(String startDate, String endDate, String category);
 }

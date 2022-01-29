@@ -1,4 +1,4 @@
-# generate-excel
+# Generate-excel
 
 This repository for learning generate file excel using apache poi.
 
@@ -9,7 +9,7 @@ The result of the generated file is base64.
 If you want to look, the result you can convert base 64 to excel in :
 https://products.aspose.app/pdf/conversion/base64-to-excel 
 
-#Implement granafana and prometheus :
+# Implement granafana and prometheus :
 1. Download promotheus : https://prometheus.io/download/ 
    Script for running prometheus service : ./prometheus --config.file=prometheus.yml
 2. Download Grafana : https://grafana.com/docs/grafana/latest/installation/mac/ 

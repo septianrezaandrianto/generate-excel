@@ -10,7 +10,7 @@ If you want to look, the result you can convert base 64 to excel in :
 https://products.aspose.app/pdf/conversion/base64-to-excel 
 
 # Implement granafana and prometheus :
-1. Download promotheus : https://prometheus.io/download/ 
+1. Download prometheus : https://prometheus.io/download/ 
    Script for running prometheus service : ./prometheus --config.file=prometheus.yml
 2. Download Grafana : https://grafana.com/docs/grafana/latest/installation/mac/ 
 3. Download dashboard Grafana Apm : https://grafana.com/grafana/dashboards/12900 

@@ -6,6 +6,7 @@ import java.text.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,4 +36,23 @@ public class GenerateExcelController {
 		return generateExcelWithoutListService.generateExcel(reportParameter);
 	}
 	
+	@GetMapping("/grafanaTesting")
+	public String doGrafanaTesting() {
+		try {
+			boolean isRunning = true;
+			
+			while (isRunning) {
+				Runnable run = () -> {
+					while(true) {
+					}
+				};
+				new Thread(run).start();
+				Thread.sleep(5000);
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "Hello World!";
+	}
 }
